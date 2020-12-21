@@ -8,7 +8,7 @@ def generate_payloads_chain_by_templates(templates):
     payloads_chain_dict = {}
     for i, template in enumerate(templates):
         if i < entries_length-1:
-            payloads_chain_dict[template] = f'resource {get_payload_file_name_by_template(templates[i + 1])}'
+            payloads_chain_dict[template] = f'resource payloads/{get_payload_file_name_by_template(templates[i + 1])}'
         else:
             payloads_chain_dict[template] = ''
 
