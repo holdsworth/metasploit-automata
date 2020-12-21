@@ -22,7 +22,8 @@ def get_payload_file_name_by_template(template):
 def generate_payloads(args):
     templates = os.listdir('./templates')
     payloads_chain_dict = generate_payloads_chain_by_templates(templates)
-
+    initial_payload_path = None
+    
     multi_command_file_path = './payloads/m.rc'
     if not os.path.isfile(multi_command_file_path):
         multi_command_handler = open(multi_command_file_path, 'w')
@@ -43,19 +44,13 @@ def generate_payloads(args):
 
         # set a symbolic link
         if i == 0:
-            src = f'./payloads/{payload_file_name}'
-            dst = './payloads/start.rc'
+            initial_payload_path = payload_file_name
             
-            # Removes previous symbolic link in case payloads chain changes its structure
-            if os.path.islink(dst):
-                os.unlink(dst)
-            # This creates a symbolic link on python in payloads directory
-            os.symlink(src, dst)
+    return initial_payload_path 
 
 
-def run_payloads():
-    # msfconsole -r apache_contiuum_cmd_exec.rc
-    output = subprocess.Popen(["msfconsole", "-r", "payloads/start.rc"])
+def run_payloads(starting_payload_path):
+    output = subprocess.Popen(["msfconsole", "-r", starting_payload_path])
     output.wait()
 
     return output
