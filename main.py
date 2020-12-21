@@ -16,10 +16,8 @@ def main():
     if validate_argparser(args):
         exit(0)
 
-    generate_payloads({'LHOST': get_ip_address(),
-                       'RHOSTS': args.rhosts})
-
-    artifacts = run_payloads()
+    artifacts = run_payloads(generate_payloads({'LHOST': get_ip_address(),
+                       'RHOSTS': args.rhosts}))
 
 
 if __name__ == "__main__":
