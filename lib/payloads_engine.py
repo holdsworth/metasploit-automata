@@ -44,7 +44,7 @@ def generate_payloads(args):
 
         # set a symbolic link
         if i == 0:
-            initial_payload_path = payload_file_name
+            initial_payload_path = f'./payloads/{payload_file_name}'
             
     return initial_payload_path 
 
