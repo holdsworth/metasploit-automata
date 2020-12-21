@@ -52,7 +52,7 @@ def generate_payloads(args):
 
 def run_payloads():
     # msfconsole -r apache_contiuum_cmd_exec.rc
-    output = subprocess.Popen(["msfconsole", "-r", "start.rc"])
+    output = subprocess.Popen(["msfconsole", "-r", "payloads/start.rc"])
     output.wait()
 
     return output
