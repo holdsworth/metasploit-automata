@@ -1,7 +1,7 @@
 import socket
 import random
 
-ERROR_CODES = [0, 61, 110]
+ERROR_CODES = [0, 61, 111]
 
 
 def is_port_closed(lhost: str, port_number: int):
