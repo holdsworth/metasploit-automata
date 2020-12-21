@@ -45,7 +45,10 @@ def generate_payloads(args):
         if i == 0:
             src = f'./payloads/{payload_file_name}'
             dst = './payloads/start.rc'
-
+            
+            # Removes previous symbolic link in case payloads chain changes its structure
+            if os.path.islink(dst):
+                os.unlink(dst)
             # This creates a symbolic link on python in payloads directory
             os.symlink(src, dst)
 
